@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 
 import 'package:get/get.dart';
 import 'package:newsapp/app/modules/Details/views/details_view.dart';
+import 'package:newsapp/app/modules/googleVision/views/google_vision_view.dart';
 import 'package:newsapp/app/utils/contants.dart';
 import '../controllers/home_controller.dart';
 
@@ -20,7 +21,7 @@ class HomeView extends GetView<HomeController> {
         actions: [
           IconButton(
               onPressed: () {
-                exit(0);
+                Get.to(() => QRScannerOverlay());
               },
               icon: const Icon(
                 Icons.stop_circle,
