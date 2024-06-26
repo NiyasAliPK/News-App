@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:newsapp/app/modules/googleVision/controllers/google_vision_controller.dart';
 
 class InvertedClipper extends CustomClipper<Path> {
@@ -40,7 +41,22 @@ class QRScannerOverlay extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return
+        // Scaffold(
+        //   body: SafeArea(
+        //     child: ElevatedButton(
+        //         onPressed: () async {
+        //           final pickedimage =
+        //               await ImagePicker().pickImage(source: ImageSource.gallery);
+        //           if (pickedimage != null) {
+        //             controller.getData(path: pickedimage.path);
+        //           }
+        //         },
+        //         child: const Text('Test')),
+        //   ),
+        // );
+
+        Scaffold(
       body: SafeArea(
         child: Container(
           margin: EdgeInsets.all(context.width * .025),
@@ -186,7 +202,7 @@ class QRScannerOverlay extends StatelessWidget {
                       ),
                       onPressed: controller.capturedImagePath.length == 2
                           ? () {
-                              controller.getData();
+                              controller.captureImage();
                             }
                           : null,
                       child: const Text('Upload'),
